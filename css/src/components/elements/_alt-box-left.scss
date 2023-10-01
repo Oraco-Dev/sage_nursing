@@ -1,0 +1,87 @@
+.abl {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include media(">=desktop") {
+    flex-direction: row;
+    gap: 0rem;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include media(">=desktop") {
+      width: 50%;
+    }
+
+    &-img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+
+      &.arch {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        max-width: 600px;
+        height: 500px;
+        outline-offset: 1rem;
+        outline: 2px solid $sage-dark;
+
+        @include media(">=desktop") {
+          height: 600px;
+        }
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    color: $navy-dark;
+    padding-bottom: 3rem;
+
+    @include media(">=desktop") {
+      width: 50%;
+      padding: 10rem;
+    }
+
+    a {
+      margin: auto;
+
+      @include media(">=desktop") {
+        margin: 0;
+      }
+    }
+
+    h2 {
+      color: $navy-dark;
+    }
+
+    &.arch {
+      background-color: transparent;
+      color: $navy-dark;
+    }
+
+    &.full {
+      padding: 2.5rem;
+
+      @include media(">=desktop") {
+        padding: 10rem;
+      }
+    }
+
+    &.blue-bg {
+      background-color: $navy-primary;
+      color: $white;
+
+      h2 {
+        color: $white;
+      }
+    }
+  }
+}

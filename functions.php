@@ -32,6 +32,7 @@ function enqueue_webpack_scripts()
   $jsFilePath = glob(get_template_directory() . '/js/build/main.min.*.js');
   $jsFileURI = get_template_directory_uri() . '/js/build/' . basename($jsFilePath[0]);
   wp_enqueue_script('main_js', $jsFileURI, null, null, true);
+  wp_localize_script('main_js', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
 }
 add_action('wp_enqueue_scripts', 'enqueue_webpack_scripts');
 
@@ -139,3 +140,72 @@ function hide_comments_column_content($column_name, $post_id)
 }
 
 // END -- REMOVE COMMENTS
+
+function create_custom_post_types()
+{
+  register_post_type(
+    'staff_members',
+    array(
+      'labels' => array(
+        'name' => __('Staff Members'),
+        'singular_name' => __('Staff Member'),
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'staff-members'),
+      'menu_icon' => 'dashicons-businessman',
+      'supports' => array('title', 'editor', 'thumbnail'),
+      'taxonomies' => array('category'),
+      // Supports featured image
+    )
+  );
+}
+
+add_action('init', 'create_custom_post_types');
+
+function remove_editor_support()
+{
+  remove_post_type_support('staff_members', 'editor');
+}
+
+add_action('init', 'remove_editor_support');
+
+function get_staff_member_fields()
+{
+  $post_id = $_POST['post_id'];
+
+  // Featured image & post title
+  $featured_image_url = get_the_post_thumbnail_url($post_id, 'full');
+  $post_title = get_the_title($post_id);
+
+  // Retrieve custom field values for the staff member using get_post_meta
+  $role = get_post_meta($post_id, 'role_-_title', true);
+  $role_code = get_post_meta($post_id, 'role_-_code', true);
+  $staff_linkedin = get_post_meta($post_id, 'staff_-_linkedin', true);
+  $staff_about = get_post_meta($post_id, 'staff_-_about', true);
+  $staff_drink = get_post_meta($post_id, 'staff_-_drink', true);
+  $staff_movie = get_post_meta($post_id, 'staff_-_movie', true);
+  $staff_business = get_post_meta($post_id, 'staff_-_business', true);
+  $staff_treat = get_post_meta($post_id, 'staff_-_treat', true);
+
+
+  // Prepare and return the data as JSON
+  $data = array(
+    'role' => $role,
+    'roleCode' => $role_code,
+    'image' => $featured_image_url,
+    'name' => $post_title,
+    'staffLinkedin' => $staff_linkedin,
+    'staffAbout' => $staff_about,
+    'staffDrink' => $staff_drink,
+    'staffMovie' => $staff_movie,
+    'staffBusiness' => $staff_business,
+    'staffTreat' => $staff_treat
+
+  );
+
+  wp_send_json($data);
+}
+
+add_action('wp_ajax_get_staff_member_fields', 'get_staff_member_fields');
+add_action('wp_ajax_nopriv_get_staff_member_fields', 'get_staff_member_fields');

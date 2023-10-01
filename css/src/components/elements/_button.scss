@@ -1,0 +1,40 @@
+.button {
+  padding: 1rem 1.6rem;
+  width: fit-content;
+  border: none;
+  outline: none;
+
+  @include media(">=desktop") {
+    padding: 1rem 3.6rem;
+  }
+
+  &.blue {
+    background-color: $navy-dark;
+    color: $white;
+
+    &:hover {
+      background-color: $navy-light;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &.sage {
+    background-color: $sage-dark;
+    color: $navy-dark;
+
+    &:hover {
+      background-color: $sage-primary;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &.white {
+    background-color: $white;
+    color: $navy-dark;
+
+    &:hover {
+      background-color: $sage-primary;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

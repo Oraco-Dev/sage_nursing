@@ -1,0 +1,61 @@
+.accordion {
+  max-width: 100rem;
+  margin: auto;
+}
+
+.accordion-item {
+  &__head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 3rem;
+    background-color: white;
+    color: $navy-light;
+
+    &.open {
+      background-color: rgba(255, 255, 255, 0.6);
+      //   background-color: $sage-primary;
+    }
+
+    &:hover {
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    &-img {
+      height: 2rem;
+      width: 2rem;
+      transition: all 0.5s;
+
+      &.open {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+    max-height: 0;
+    padding-left: 3rem;
+    transition: all 0.5s;
+    margin-bottom: 1rem;
+    h3 {
+      padding: 10px;
+
+      @include media(">desktop") {
+        width: 60%;
+      }
+    }
+
+    &.open {
+      transition: all 0.5s;
+      max-height: 1000px;
+      padding: 6rem 3rem;
+      background-color: white;
+      margin-top: 1px;
+      margin-bottom: 2.5rem;
+    }
+  }
+}

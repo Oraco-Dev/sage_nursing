@@ -1,0 +1,156 @@
+#custom-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  overflow: auto;
+}
+
+.modal__content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
+  background-color: $sage-primary;
+  max-width: calc(100% - 5vw);
+  padding: 5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  min-height: 70%;
+  height: fit-content;
+  max-height: 90%;
+
+  overflow-y: auto;
+
+  @include media(">=tablet") {
+    max-width: 700px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @include media(">=desktop") {
+    max-width: 1100px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &-col.one {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  &-col.two {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &-col.three {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &-staffimg {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+    outline-offset: 1rem;
+    outline: 2px solid $sage-dark;
+
+    @include media(">=desktop") {
+      width: 35rem;
+      height: 35rem;
+    }
+  }
+
+  &-link {
+    color: $navy-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    span {
+      padding-top: 0.5rem;
+    }
+  }
+
+  &-favourites {
+    font-style: italic;
+    font-size: 1.8rem;
+    line-height: 3.5rem;
+    font-family: $PTSerif;
+  }
+
+  &-info {
+    padding: 4rem;
+    border: 1px solid $sage-dark;
+    height: 100%;
+    height: fit-content;
+
+    &-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-bottom: 1px solid $navy-dark;
+      min-height: 25%;
+      height: fit-content;
+
+      &.two,
+      &.three,
+      &.four {
+        padding-top: 2rem;
+      }
+
+      &.four {
+        border-bottom: none;
+      }
+
+      &-head {
+        display: flex;
+        align-items: center;
+
+        &-icon {
+          width: 3rem;
+          object-fit: cover;
+        }
+
+        &-title {
+          font-size: 1.8rem;
+          line-height: 3.5rem;
+          font-family: $PTSerif;
+          padding-left: 2rem;
+        }
+      }
+    }
+  }
+}
+
+/* Close button */
+.close-modal-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 5rem;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Customize the styling of other elements as needed */
+.modal-name,
+.modal-role,
+.modal-movie,
+.modal-business {
+  /* Add your custom styles here */
+}

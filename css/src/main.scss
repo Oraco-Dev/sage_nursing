@@ -7,26 +7,30 @@
 // helpers
 @import "./helpers/vars";
 @import "./helpers/mixins";
-@import "./helpers/cursor";
 @import "./helpers/breakpoints";
 @import "./helpers/container";
 
 // components
 @import "./components/header";
-@import "./components/menu";
-@import "./components/calltoaction";
-
-// globals
-@import "./components/globals/hero";
-@import "./components/globals/main";
+@import "./components/footer";
 
 // elements
-@import "././components/elements/buttons";
-@import "././components/elements/cards";
-@import "././components/elements/accordion";
+@import "./components/elements/button";
+@import "./components/elements/alt-box-left";
+@import "./components/elements/alt-box-right";
+@import "./components/elements/call-to-action";
+@import "./components/elements/staff-arch";
+@import "./components/elements/accordion";
+@import "./components/elements/contact";
+@import "./components/elements/modal";
+@import "./components/elements/menu";
+@import "./components/elements/back-to-top";
 
 // layout & pages
 @import "./base";
 @import "./pages/front-page";
-@import "./pages/blog-page";
-@import "./pages/single-blog-page";
+@import "./pages/about-page";
+@import "./pages/why-join-us-page";
+@import "./pages/our-clients-page";
+@import "./pages/contact-page";
+@import "./pages/sage-community-page";

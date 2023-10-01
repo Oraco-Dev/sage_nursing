@@ -1,0 +1,143 @@
+.ab__banner {
+  position: relative;
+  min-height: 83vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: $sage-primary;
+
+  &-bgimg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-logoimg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 40%;
+    min-width: 300px;
+  }
+
+  &-watermarkone {
+    position: absolute;
+    height: 50%;
+    max-width: 200px;
+    bottom: 0%;
+    left: -7.5%;
+
+    @include media(">=desktop") {
+      max-width: 500px;
+      top: 5%;
+      left: -7.5%;
+    }
+  }
+
+  &-watermarktwo {
+    z-index: 100;
+    position: absolute;
+    right: -35%;
+
+    @include media(">=desktop") {
+      height: 55%;
+      bottom: 0%;
+      right: -15%;
+    }
+  }
+}
+
+.ab__mission {
+  padding-top: 20%;
+  padding-bottom: 20%;
+  position: relative;
+
+  @include media(">=desktop") {
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+}
+
+.ab__life {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 20%;
+
+  @include media(">=desktop") {
+    padding-bottom: 10%;
+  }
+
+  &-img {
+    position: absolute;
+    right: -25%;
+    bottom: 0;
+    height: 30%;
+
+    @include media(">=desktop") {
+      right: -10%;
+      height: 80%;
+    }
+  }
+
+  &-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5rem;
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    width: 100%;
+
+    @include media(">=desktop") {
+      width: 70%;
+    }
+  }
+}
+
+.ab__team {
+  padding-bottom: 20%;
+
+  @include media(">=desktop") {
+    padding-bottom: 10%;
+  }
+
+  &-outer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-intro {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-bottom: 10rem;
+  }
+
+  &-grid {
+    display: grid;
+    gap: 10rem;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include media(">=tablet") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media(">=desktop") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

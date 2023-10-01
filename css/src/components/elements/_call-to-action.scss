@@ -1,0 +1,39 @@
+.cta {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: $sage-dark;
+  padding: 10rem 0px;
+  overflow: hidden;
+
+  h2 {
+    text-align: center;
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    &-icon {
+      height: 3.5rem;
+    }
+  }
+
+  &-img {
+    position: absolute;
+    top: -6rem;
+    left: -6rem;
+    height: 40%;
+
+    @include media(">=desktop") {
+      top: -6rem;
+      left: 4rem;
+      height: 100%;
+    }
+  }
+}

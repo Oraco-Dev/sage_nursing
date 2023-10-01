@@ -1,0 +1,120 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+
+  @include media(">=desktop") {
+    flex-direction: row;
+    gap: 0rem;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 2rem;
+    gap: 2rem;
+    width: 100%;
+
+    @include media(">=desktop") {
+      width: 50%;
+      padding: 12rem;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &-icon {
+        height: 2rem;
+      }
+    }
+
+    &-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      a {
+        color: $navy-dark;
+      }
+
+      &-icon {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include media(">=desktop") {
+      width: 50%;
+    }
+
+    &-form {
+      background-color: $sage-primary-50;
+
+      width: 100%;
+      padding: 2rem;
+      border: 2px solid $sage-primary;
+
+      @include media(">=desktop") {
+        max-width: 500px;
+        padding: 6rem;
+      }
+    }
+  }
+}
+
+// WHY JOIN US FORM
+
+#wpcf7-f207-o1,
+#wpcf7-f253-o1,
+#wpcf7-f267-o1 {
+  input,
+  textarea,
+  select {
+    width: 100%;
+    border-radius: 0px;
+    border: 2px solid $sage-primary;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: black;
+    font-size: 1.6rem;
+
+    &:focus {
+      border: 0.5rem solid $sage-primary;
+      outline: none;
+    }
+
+    &::placeholder {
+      font-family: $PTSerif;
+      color: rgb(185, 185, 185);
+      font-size: 1.6rem;
+    }
+  }
+}
+
+// ALL CONTACT FORM 7 BUTTONS
+
+.wpcf7-submit {
+  cursor: pointer;
+  font-family: $Montserrat;
+  font-size: 1.6rem;
+  padding: 1rem 1.6rem;
+  width: fit-content;
+  border: none;
+  outline: none;
+  background-color: $sage-dark;
+  color: $navy-dark !important;
+
+  @include media(">=desktop") {
+    padding: 1rem 3.6rem;
+  }
+}

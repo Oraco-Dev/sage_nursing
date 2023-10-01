@@ -1,0 +1,242 @@
+.wj__banner {
+  position: relative;
+  min-height: 83vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background-color: rgba(135, 149, 131, 0.8);
+    z-index: 99;
+  }
+
+  &-outer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    color: $white;
+    z-index: 100;
+
+    @include media(">=desktop") {
+      padding-left: 47.5%;
+      padding-right: 20%;
+    }
+
+    h2,
+    span {
+      color: $white;
+      z-index: 100;
+    }
+  }
+  &-bgimg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-watermarkone {
+    position: absolute;
+    height: 20%;
+    bottom: -10%;
+    left: -5%;
+    z-index: 100;
+
+    @include media(">=desktop") {
+      height: auto;
+    }
+  }
+
+  &-watermarktwo {
+    position: absolute;
+    height: 25%;
+    top: -5%;
+    right: -15%;
+    z-index: 100;
+
+    @include media(">=desktop") {
+      height: auto;
+    }
+  }
+}
+
+.wb__community {
+  padding-bottom: 20%;
+  padding-top: 20%;
+
+  @include media(">=desktop") {
+    padding-bottom: 10%;
+    padding-top: 10%;
+  }
+}
+
+.wj__services {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &-intro {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  &-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include media(">=tablet") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media(">=tablet") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 60px;
+      text-align: center;
+      gap: 1.5rem;
+      color: $navy-dark;
+
+      &-img {
+        height: 100px;
+      }
+
+      &.one {
+        h3 {
+          color: $white;
+        }
+
+        background-color: $navy-primary;
+        color: $white;
+      }
+
+      &.two {
+        background-color: $navy-gray;
+      }
+
+      &.three {
+        background-color: $sage-dark;
+      }
+
+      &.four {
+        background-color: $sage-light;
+      }
+    }
+  }
+}
+
+.wj__work {
+  padding-top: 20%;
+  background-color: $sage-primary-50;
+
+  @include media(">=desktop") {
+    padding-top: 10%;
+  }
+}
+
+.wj__accordion {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: $sage-primary-50;
+  padding-top: 20%;
+  padding-bottom: 20%;
+
+  @include media(">=desktop") {
+    padding-bottom: 10%;
+    padding-top: 10%;
+  }
+
+  &-img {
+    position: absolute;
+    top: -10%;
+    right: -20%;
+    height: 30%;
+    max-height: 220px;
+
+    @include media(">=desktop") {
+      top: 0;
+      right: -5%;
+      height: 45%;
+      max-height: 380px;
+    }
+  }
+
+  &-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5rem;
+  }
+}
+
+.wj__join {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include media(">=tablet") {
+    flex-direction: row;
+  }
+
+  &-left,
+  &-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.5rem;
+    width: 100%;
+    overflow: hidden;
+
+    @include media(">=desktop") {
+      padding: 15rem;
+    }
+
+    &-img {
+      position: absolute;
+      bottom: 3%;
+      right: -10%;
+      height: 17.5%;
+
+      @include media(">=desktop") {
+        height: 25%;
+      }
+    }
+  }
+
+  &-left {
+    background-color: $navy-primary;
+    color: $white;
+
+    h2 {
+      color: $white;
+    }
+  }
+
+  &-right {
+    background-color: $sage-primary;
+  }
+}
+
+.wj__contact {
+  padding-top: 20%;
+  padding-bottom: 20%;
+
+  @include media(">=desktop") {
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+}

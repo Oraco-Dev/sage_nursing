@@ -1,0 +1,95 @@
+.abr {
+  display: flex;
+  flex-direction: column;
+
+  &.col-reverse {
+    flex-direction: column-reverse;
+
+    @include media(">=desktop") {
+      flex-direction: row;
+    }
+  }
+
+  @include media(">=desktop") {
+    flex-direction: row;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 2.5rem 0rem;
+    color: $navy-dark;
+
+    &.expad {
+      @include media(">=desktop") {
+        padding: 12rem;
+      }
+    }
+
+    a {
+      margin: auto;
+
+      @include media(">=desktop") {
+        margin: 0;
+      }
+    }
+
+    @include media(">=desktop") {
+      width: 50%;
+      padding-top: 0rem;
+      padding-right: 5rem;
+    }
+
+    &.full {
+      padding: 2.5rem;
+
+      @include media(">=desktop") {
+        padding: 10rem;
+      }
+    }
+
+    &-iconbox {
+      display: flex;
+      gap: 2rem;
+      padding-bottom: 2rem;
+
+      &-left {
+        &-img {
+          width: 4rem;
+        }
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include media(">=desktop") {
+      width: 50%;
+    }
+
+    &-img {
+      width: 100%;
+      object-fit: cover;
+      height: 90%;
+
+      &.arch {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        max-width: 600px;
+        height: 500px;
+        outline-offset: 1rem;
+        outline: 2px solid $sage-dark;
+
+        @include media(">=desktop") {
+          height: 600px;
+        }
+      }
+    }
+  }
+}

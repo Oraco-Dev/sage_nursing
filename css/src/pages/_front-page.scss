@@ -1,0 +1,225 @@
+// SECTION - BANNER
+.front-page {
+  background-color: $sage-primary-50;
+}
+
+.fp__banner {
+  position: relative;
+  min-height: 83vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 99;
+  }
+
+  &-bgimg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-logoimg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 40%;
+    min-width: 300px;
+  }
+
+  &-watermarkone {
+    position: absolute;
+    height: 50%;
+    bottom: -10%;
+    left: -5%;
+
+    @include media(">=desktop") {
+      height: auto;
+    }
+  }
+
+  &-watermarktwo {
+    position: absolute;
+    height: 35%;
+    top: -5%;
+    right: -15%;
+
+    @include media(">=desktop") {
+      height: auto;
+    }
+  }
+}
+
+// SECTION - BANNER BOXES
+
+.fp__boxes {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: -200px;
+  z-index: 100;
+  padding-bottom: 20%;
+
+  @include media(">=desktop") {
+    gap: 20px;
+    margin-top: -100px;
+    padding-bottom: 10%;
+  }
+
+  &-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem;
+
+    @include media(">=desktop") {
+      padding: 50px;
+      width: 350px;
+      height: 350px;
+    }
+
+    &-img {
+      height: 80px;
+      width: 100px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    &.one {
+      background-color: $navy-dark;
+
+      h3,
+      a {
+        color: $white;
+        text-align: center;
+      }
+    }
+
+    &.two {
+      background-color: $sage-dark;
+
+      h3,
+      a {
+        color: $navy-dark;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.fp__welcome {
+  width: 100%;
+  position: relative;
+  padding-bottom: 20%;
+
+  @include media(">=desktop") {
+    padding-bottom: 10%;
+  }
+
+  &-watermark {
+    position: absolute;
+    left: -100px;
+    opacity: 0.5;
+    bottom: 0px;
+
+    @include media(">=desktop") {
+      top: 0px;
+    }
+  }
+}
+
+.fp__services {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20%;
+
+  @include media(">=desktop") {
+    padding-bottom: 10%;
+  }
+
+  &-intro {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  &-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include media(">=tablet") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media(">=tablet") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 60px;
+      text-align: center;
+      gap: 1.5rem;
+      color: $navy-dark;
+
+      &-img {
+        height: 100px;
+      }
+
+      &.one {
+        h3 {
+          color: $white;
+        }
+
+        background-color: $navy-primary;
+        color: $white;
+      }
+
+      &.two {
+        background-color: $navy-gray;
+      }
+
+      &.three {
+        background-color: $sage-dark;
+      }
+
+      &.four {
+        background-color: $sage-light;
+      }
+    }
+  }
+}
+
+.fp__work {
+  padding-bottom: 20%;
+
+  @include media(">=desktop") {
+    padding-bottom: 10%;
+  }
+}
